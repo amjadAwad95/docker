@@ -46,7 +46,7 @@ mongoose
 
 app.get("/", (req, res) => {
     redisClient.set("products", "products...");
-    res.send("<h1>Welcome to My Express Server in AWS, using docker hub</h1>");
+    res.send("<h1>Welcome to My Express Server in AWS, using docker hub</h1> <h2>Redis is connected</h2> <h2>MongoDB is connected</h2>");
 })
 
 app.get("/data", async (req, res) => {
