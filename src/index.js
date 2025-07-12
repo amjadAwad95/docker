@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const redis = require('redis');
+const os = require('os');
 // const { Client } = require("pg")
 
 const PORT = process.env.PORT || 4000;
@@ -46,7 +47,8 @@ mongoose
 
 app.get("/", (req, res) => {
     redisClient.set("products", "products...");
-    res.send("<h1>Welcome to My Express Server in AWS, using docker hub</h1> <h2>Redis is connected</h2> <h2>MongoDB is connected</h2>");
+    console.log(`traffic from: ${os.hostname()}`);
+    res.send("<h1>Welcome to My Express Server in AWS, using docker hub</h1> <h2>Redis is connected</h2> <h2>MongoDB is connected</h2> <h3>with watchtower</h3>");
 })
 
 app.get("/data", async (req, res) => {
